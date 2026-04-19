@@ -32,7 +32,7 @@ export class ProductController {
 
   getProductById = async (req: Request, res: Response) => {
     try {
-      const product = await this.productService.getProductById(req.params.id);
+      const product = await this.productService.getProductById(req.params.id as string);
       if (!product) return res.status(404).json({ message: 'Product not found' });
       res.json(product);
     } catch (error: any) {
@@ -65,7 +65,7 @@ export class ProductController {
 
   getRecommendations = async (req: Request, res: Response) => {
     try {
-      const products = await this.productService.getRecommendations(req.params.id);
+      const products = await this.productService.getRecommendations(req.params.id as string);
       res.json(products);
     } catch (error: any) {
       res.status(500).json({ message: error.message });

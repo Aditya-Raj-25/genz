@@ -1,11 +1,11 @@
 {
-  "name": "genz",
-  "version": "1.0.0",
-  "main": "index.js",
+  "name": "genz-monorepo",
+  "private": true,
+  "workspaces": [
+    "frontend",
+    "backend"
+  ],
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
-  "author": "",
-  "license": "ISC",
-  "description": ""
+    "build": "npm run build --workspace=frontend"
+  }
 }

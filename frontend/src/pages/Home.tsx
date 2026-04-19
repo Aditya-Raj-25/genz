@@ -18,8 +18,8 @@ const Home = () => {
           api.get('/products/trending'),
           api.get('/products?limit=8')
         ]);
-        setTrending(trendingRes.data);
-        setFeatured(featuredRes.data.products);
+        setTrending(Array.isArray(trendingRes.data) ? trendingRes.data : []);
+        setFeatured(Array.isArray(featuredRes.data?.products) ? featuredRes.data.products : []);
       } catch (error) {
         console.error('Error fetching home data:', error);
       } finally {

@@ -30,8 +30,8 @@ const Products = () => {
             limit: 12
           }
         });
-        setProducts(res.data.products);
-        setTotal(res.data.total);
+        setProducts(Array.isArray(res.data.products) ? res.data.products : []);
+        setTotal(res.data.total || 0);
       } catch (error) {
         console.error('Error fetching items:', error);
       } finally {

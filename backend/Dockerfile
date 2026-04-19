@@ -8,6 +8,8 @@ RUN npm install
 
 COPY . .
 
-EXPOSE 3000
+RUN npm run build
 
-CMD ["node", "index.js"]
+EXPOSE 5001
+
+CMD ["npm", "start"]
